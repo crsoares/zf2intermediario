@@ -12,5 +12,16 @@
  */
 
 return array(
-    // ...
+    'mail' => array(
+        'name' => 'smtp.googlemail.com',
+        'host' => 'smtp.googlemail.com',
+        'connection_class' => 'login',
+        'connection_config' => array(
+            'username' => 'crysthianophp@gmail.com',
+            'password' => 'h#ck*r_phpoo',
+            'ssl' => 'tls',
+            'port' => 465,
+            'from' => 'crysthianophp@gmail.com',
+        ),
+    ),
 );

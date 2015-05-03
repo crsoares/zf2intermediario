@@ -1,0 +1,32 @@
+<h1>Roles</h1>
+
+<br />
+
+<p>
+	<a href="<?php echo $this->url('sonacl-admin/default', array('action' => 'new')); ?>">Novo</a>
+</p>
+
+<table class="table">
+	<tr>
+		<td>ID</td>
+		<td>Nome</td>
+		<td>Herança</td>
+		<td>Admin?</td>
+		<td>Ação</td>
+	</tr>
+	<?php foreach ($this->data as $entity) : ?>
+			<tr>
+				<td><?php echo $entity->getId(); ?></td>
+				<td><?php echo $entity->getNome(); ?></td>
+				<td><?php echo $entity->getParent(); ?></td>
+				<td><?php echo $entity->getIsAdmin() ? 'sim' : 'nâo'; ?></td>
+				<td>
+					<a href="<?php echo $this->url('sonacl-admin/default', array('controller' => 'roles', 'action' => 'edit', 'id' => $entity->getId())); ?>">Editar</a> 
+					<a href="<?php echo $this->url('sonacl-admin/default', array('controller' => 'roles', 'action' => 'delete', 'id' => $entity->getId())); ?>">Deletar</a>
+				</td>
+			</tr>
+	<?php endforeach; ?>
+</table>
+<br />
+
+<?php echo $this->paginationControl($this->data, 'Sliding', 'partials/paginator'); ?>
